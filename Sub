@@ -112,7 +112,7 @@
       "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
-        "server_name": "LeT-HiM-CoOk.iRcP.OnLiNe",
+        "server_name": "let-him-cook.ircp.online",
         "alpn": "h3",
         "min_version": "1.3",
         "max_version": "1.3",
