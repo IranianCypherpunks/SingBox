@@ -7,13 +7,13 @@
     "servers": [
       {
         "tag": "Internet-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
-        "address": "https://8.8.8.8/dns-query",
+        "address": "tcp://8.8.8.8",
         "address_resolver": "direct-dns",
         "detour": "Best Latency"
       },
