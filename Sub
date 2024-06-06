@@ -9,17 +9,23 @@
         "tag": "Internet-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "prefer_ipv6",
+        "strategy": "prefer_ipv6",
         "detour": "Internet"
       },
       {
         "tag": "Best Latency-dns",
         "address": "https://8.8.8.8/dns-query",
         "address_resolver": "direct-dns",
+        "address_strategy": "prefer_ipv6",
+        "strategy": "prefer_ipv6",
         "detour": "Best Latency"
       },
       {
         "tag": "direct-dns",
         "address": "local",
+        "address_strategy": "prefer_ipv6",
+        "strategy": "prefer_ipv6",
         "detour": "direct"
       },
       {
@@ -28,6 +34,15 @@
       }
     ],
     "rules": [
+      {
+        "domain_suffix": [
+          "h.88981401.xyz",
+          "h.88981401.xyz",
+          "arvancloudstatus.ir"
+        ],
+        "server": "direct-dns",
+        "rewrite_ttl": 20
+      },
       {
         "outbound": "Internet",
         "server": "Internet-dns",
@@ -49,6 +64,7 @@
         "rewrite_ttl": 20
       }
     ],
+    "strategy": "prefer_ipv6",
     "disable_expire": true
   },
   "inbounds": [
@@ -58,7 +74,6 @@
       "interface_name": "tun0",
       "mtu": 9000,
       "inet4_address": "172.19.0.1/30",
-      "inet6_address": "fdfe:dcba:9876::1/126",
       "auto_route": true,
       "strict_route": true,
       "stack": "mixed",
@@ -69,7 +84,8 @@
       "tag": "mixed-in",
       "listen": "0.0.0.0",
       "listen_port": 2080,
-      "sniff": true
+      "sniff": true,
+      "domain_strategy": "prefer_ipv6"
     }
   ],
   "outbounds": [
@@ -78,30 +94,29 @@
       "tag": "Internet",
       "outbounds": [
         "Best Latency",
-        "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔"
+        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐\n@Ln2Ray § hy2+ech",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray § vl+ws+tls+cdn+frag"
       ]
     },
     {
       "type": "urltest",
       "tag": "Best Latency",
       "outbounds": [
-        "🇳🇱 𝐈𝐑𝐂𝐏",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝐢𝐩𝐯𝟔",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔"
+        "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐\n@Ln2Ray § hy2+ech",
+        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray § vl+ws+tls+cdn+frag"
       ],
-      "url": "http://www.google.com/generate_204",
+      "url": "http://cp.cloudflare.com",
       "interval": "10m0s",
       "tolerance": 50,
       "idle_timeout": "30m0s"
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏",
-      "server": "193.38.54.48",
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
+      "domain_strategy": "prefer_ipv6",
+      "server": "h.88981401.xyz",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
@@ -128,8 +143,9 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐",
-      "server": "37.221.127.169",
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐\n@Ln2Ray § hy2+ech",
+      "domain_strategy": "prefer_ipv6",
+      "server": "h.88981401.xyz",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
@@ -155,60 +171,31 @@
       }
     },
     {
-      "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝐢𝐩𝐯𝟔",
-      "server": "2a09:7c44:0:14::1",
+      "type": "vless",
+      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏\u0026𝟐\n@Ln2Ray § vl+ws+tls+cdn+frag",
+      "domain_strategy": "prefer_ipv6",
+      "server": "arvancloudstatus.ir",
       "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
-      },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
+      "uuid": "5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
-        "server_name": "let-him-cook.ircp.online",
-        "alpn": "h3",
+        "server_name": "cdn.ircp.online",
+        "alpn": "http/1.1",
         "min_version": "1.3",
         "max_version": "1.3",
-        "ech": {
+        "utls": {
           "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACCc2kqEYGusiYc5fj1smMpQJYQLckpS1bgOaCDLvoiofgAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
+          "fingerprint": "chrome"
         }
-      }
-    },
-    {
-      "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔",
-      "server": "2a09:7c44:0:13::1",
-      "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2"
       },
-      "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489-2",
-      "tls": {
-        "enabled": true,
-        "server_name": "let-her-cook.ircp.online",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACDEm4x9dlkKtLblXP7y0ZjKr7g6DdP2WaOgIjI6ujcnTQAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
+      "transport": {
+        "type": "ws",
+        "path": "/@ln2ray",
+        "headers": {
+          "Host": "cdn.ircp.online"
         }
-      }
+      },
+      "packet_encoding": "xudp"
     },
     {
       "type": "direct",
