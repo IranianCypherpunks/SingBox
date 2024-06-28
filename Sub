@@ -176,7 +176,7 @@
     {
       "type": "hysteria2",
       "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech",
-      "server": "2a09:7c44:0:14::1",
+      "server": "2a12:a800:1:1:194:26:192:216",
       "server_port": 443,
       "obfs": {
         "type": "salamander",
