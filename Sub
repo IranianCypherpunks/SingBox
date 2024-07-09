@@ -100,7 +100,7 @@
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § vl+ws+tls+cdn+frag",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech"
+        "🇩🇪 𝐈𝐑𝐂𝐏 | 1 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech"
       ]
     },
     {
@@ -110,7 +110,7 @@
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
         "🇳🇱 𝐈𝐑𝐂𝐏\n@Ln2Ray § vl+ws+tls+cdn+frag",
         "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟏 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech",
-        "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech"
+        "🇩🇪 𝐈𝐑𝐂𝐏 | 1 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech"
       ],
       "url": "http://www.google.com/generate_204",
       "interval": "10m0s",
@@ -203,13 +203,9 @@
     },
     {
       "type": "hysteria2",
-      "tag": "🇳🇱 𝐈𝐑𝐂𝐏 | 𝟐 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech",
-      "server": "2a09:7c44:0:140::1",
+      "tag": "🇩🇪 𝐈𝐑𝐂𝐏 | 1 | 𝐢𝐩𝐯𝟔\n@Ln2Ray § hy2+ech",
+      "server": "2a0d:5940:38:11::1",
       "server_port": 443,
-      "obfs": {
-        "type": "salamander",
-        "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489"
-      },
       "password": "@ln2ray-5bdf790f-0af2-4481-a624-41b66e7e3489",
       "tls": {
         "enabled": true,
