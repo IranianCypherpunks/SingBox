@@ -1,255 +1,236 @@
 {
-  "log": {
-    "disabled": true,
-    "level": "panic"
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "Internet-dns",
-        "address": "https://94.140.14.14/dns-query",
-        "strategy": "prefer_ipv4",
-        "detour": "Internet"
-      },
-      {
-        "tag": "Best Latency-dns",
-        "address": "https://94.140.14.14/dns-query",
-        "strategy": "prefer_ipv4",
-        "detour": "Best Latency"
-      },
-      {
-        "tag": "direct-dns",
-        "address": "udp://8.8.8.8",
-        "strategy": "prefer_ipv4",
-        "detour": "direct"
-      },
-      {
-        "tag": "block-dns",
-        "address": "rcode://success"
-      }
-    ],
-    "rules": [
-      {
-        "domain": [
-          "h2.88981401.xyz"
-        ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "domain_regex": [
-          ".*\\.ir$",
-          ".*\\.xn--mgba3a4f16a$"
-        ],
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "rule_set": "geosite-ir",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Internet",
-        "server": "Internet-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "Best Latency",
-        "server": "Best Latency-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "direct",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "outbound": "any",
-        "server": "direct-dns",
-        "rewrite_ttl": 20
-      },
-      {
-        "inbound": "tun-in",
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
-        "server": "Best Latency-dns",
-        "disable_cache": true,
-        "rewrite_ttl": 20
-      }
-    ],
-    "strategy": "prefer_ipv4",
-    "independent_cache": true
-  },
-  "inbounds": [
-    {
-      "type": "tun",
-      "tag": "tun-in",
-      "mtu": 9000,
-      "address": [
-        "172.18.0.1/30",
-        "fdfe:dcba:9876::1/126"
-      ],
-      "auto_route": true,
-      "strict_route": true,
-      "route_exclude_address": [
-        "192.168.0.0/16",
-        "fc00::/7"
-      ],
-      "stack": "mixed",
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
+    "log": {
+        "disabled": true,
+        "level": "panic"
     },
-    {
-      "type": "mixed",
-      "tag": "mixed-in",
-      "listen": "0.0.0.0",
-      "listen_port": 4040,
-      "sniff": true,
-      "sniff_override_destination": true,
-      "domain_strategy": "prefer_ipv4"
-    }
-  ],
-  "outbounds": [
-    {
-      "type": "selector",
-      "tag": "Internet",
-      "outbounds": [
-        "Best Latency",
-      "𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech"
-      ]
+    "dns": {
+        "servers": [
+            {
+                "tag": "Internet-dns",
+                "address": "https://94.140.14.14/dns-query",
+                "strategy": "prefer_ipv4",
+                "detour": "Internet"
+            },
+            {
+                "tag": "Best Latency-dns",
+                "address": "https://94.140.14.14/dns-query",
+                "strategy": "prefer_ipv4",
+                "detour": "Best Latency"
+            },
+            {
+                "tag": "direct-dns",
+                "address": "8.8.8.8",
+                "strategy": "prefer_ipv4",
+                "detour": "direct"
+            },
+            {
+                "tag": "block-dns",
+                "address": "rcode://success"
+            }
+        ],
+        "rules": [
+            {
+                "domain": [
+                    "h2.88981401.xyz",
+                    "mods.lnmarketplace.net"
+                ],
+                "server": "direct-dns",
+                "rewrite_ttl": 20
+            },
+            {
+                "domain_regex": [
+                    ".*\\.ir$",
+                    ".*\\.xn--mgba3a4f16a$"
+                ],
+                "server": "direct-dns",
+                "rewrite_ttl": 20
+            },
+            {
+                "outbound": "Internet",
+                "server": "Internet-dns",
+                "rewrite_ttl": 20
+            },
+            {
+                "outbound": "Best Latency",
+                "server": "Best Latency-dns",
+                "rewrite_ttl": 20
+            },
+            {
+                "outbound": "direct",
+                "server": "direct-dns",
+                "rewrite_ttl": 20
+            },
+            {
+                "outbound": "any",
+                "server": "direct-dns",
+                "rewrite_ttl": 20
+            }
+        ],
+        "strategy": "prefer_ipv4",
+        "independent_cache": true
     },
-    {
-      "type": "urltest",
-      "tag": "Best Latency",
-      "outbounds": [
-      "𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech"
-      ],
-      "url": "http://www.msftconnecttest.com",
-      "interval": "3m0s",
-      "tolerance": 1,
-      "idle_timeout": "9m0s"
-    },
-    {
-      "type": "hysteria2",
-      "tag": "𝐈𝐑𝐂𝐏\n@Ln2Ray § hy2+ech",
-      "domain_strategy": "prefer_ipv6",
-      "server": "h2.88981401.xyz",
-      "server_port": 443,
-      "password": "yVdMahZlkkgk",
-      "tls": {
-        "enabled": true,
-        "server_name": "hy2.55994421.xyz",
-        "alpn": "h3",
-        "min_version": "1.3",
-        "max_version": "1.3",
-        "ech": {
-          "enabled": true,
-          "pq_signature_schemes_enabled": true,
-          "config": [
-            "-----BEGIN ECH CONFIGS-----",
-            "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
-            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-            "-----END ECH CONFIGS-----"
-          ]
+    "inbounds": [
+        {
+            "type": "tun",
+            "tag": "tun-in",
+            "mtu": 9000,
+            "address": [
+                "172.18.0.1/30",
+                "fdfe:dcba:9876::1/126"
+            ],
+            "auto_route": true,
+            "strict_route": true,
+            "route_exclude_address": [
+                "192.168.0.0/16",
+                "fc00::/7"
+            ],
+            "stack": "mixed",
+            "sniff": true,
+            "sniff_override_destination": true,
+            "domain_strategy": "prefer_ipv4"
+        },
+        {
+            "type": "mixed",
+            "tag": "mixed-in",
+            "listen": "0.0.0.0",
+            "listen_port": 4040,
+            "sniff": true,
+            "sniff_override_destination": true,
+            "domain_strategy": "prefer_ipv4"
         }
-      }
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "block",
-      "tag": "block"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    }
-  ],
-  "route": {
-    "rules": [
-      {
-        "port": 53,
-        "outbound": "dns-out"
-      },
-      {
-        "network": "udp",
-        "protocol": "quic",
-        "outbound": "block"
-      },
-      {
-        "protocol": "stun",
-        "outbound": "block"
-      },
-      {
-        "ip_cidr": [
-          "10.10.34.34",
-          "10.10.34.35",
-          "10.10.34.36"
-        ],
-        "outbound": "block"
-      },
-      {
-        "source_ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "ip_cidr": [
-          "224.0.0.0/3",
-          "ff00::/8"
-        ],
-        "outbound": "block"
-      },
-      {
-        "ip_is_private": true,
-        "outbound": "direct"
-      },
-      {
-        "domain_regex": [
-          ".*\\.i﻿r$",
-          ".*\\.xn--mgba3a4f16a$"
-        ],
-        "outbound": "direct"
-      },
-      {
-        "rule_set": [
-          "geoip-ir",
-          "geosite-ir"
-        ],
-        "outbound": "direct"
-      }
     ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "tag": "geoip-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geoip-ir.srs",
-        "download_detour": "direct",
-        "update_interval": "168h0m0s"
-      },
-      {
-        "type": "remote",
-        "tag": "geosite-ir",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/Chocolate4U/Iran-sing-box-rules/rule-set/geosite-ir.srs",
-        "download_detour": "direct",
-        "update_interval": "168h0m0s"
-      }
+    "outbounds": [
+        {
+            "type": "selector",
+            "tag": "Internet",
+            "outbounds": [
+                "Best Latency",
+                "HY2",
+                "TCP"
+            ]
+        },
+        {
+            "type": "urltest",
+            "tag": "Best Latency",
+            "outbounds": [
+                "HY2",
+                "TCP"
+            ],
+            "url": "http://detectportal.firefox.com",
+            "interval": "3m0s",
+            "tolerance": 1,
+            "idle_timeout": "9m0s"
+        },
+        {
+            "type": "hysteria2",
+            "tag": "HY2",
+            "domain_strategy": "prefer_ipv6",
+            "server": "h2.88981401.xyz",
+            "server_port": 443,
+            "password": "yVdMahZlkkgk",
+            "tls": {
+                "enabled": true,
+                "server_name": "hy2.55994421.xyz",
+                "alpn": "h3",
+                "min_version": "1.3",
+                "max_version": "1.3",
+                "ech": {
+                    "enabled": true,
+                    "pq_signature_schemes_enabled": true,
+                    "config": [
+                        "-----BEGIN ECH CONFIGS-----",
+                        "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
+                        "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+                        "-----END ECH CONFIGS-----"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "vless",
+            "tag": "TCP",
+            "server": "mods.lnmarketplace.net",
+            "server_port": 443,
+            "uuid": "9e55e24c-8de9-4357-8a37-9cf1212c6491",
+            "flow": "xtls-rprx-vision",
+            "tls": {
+                "enabled": true,
+                "server_name": "mods.lnmarketplace.net",
+                "alpn": "h2",
+                "min_version": "1.3",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "randomized"
+                }
+            }
+        },
+        {
+            "type": "direct",
+            "tag": "direct"
+        },
+        {
+            "type": "block",
+            "tag": "block"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        }
     ],
-    "auto_detect_interface": true,
-    "override_android_vpn": true
-  },
-  "experimental": {
-    "cache_file": {
-      "enabled": true,
-      "path": "cache.db",
-      "cache_id": "ircp"
+    "route": {
+        "rules": [
+            {
+                "port": 53,
+                "outbound": "dns-out"
+            },
+            {
+                "network": "udp",
+                "port": 53,
+                "outbound": "block"
+            },
+            {
+                "protocol": "stun",
+                "outbound": "block"
+            },
+            {
+                "ip_cidr": [
+                    "10.10.34.34",
+                    "10.10.34.35",
+                    "10.10.34.36"
+                ],
+                "outbound": "block"
+            },
+            {
+                "source_ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ],
+                "ip_cidr": [
+                    "224.0.0.0/3",
+                    "ff00::/8"
+                ],
+                "outbound": "block"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct"
+            },
+            {
+                "domain_regex": [
+                    ".*\\.i﻿r$",
+                    ".*\\.xn--mgba3a4f16a$"
+                ],
+                "outbound": "direct"
+            }
+        ],
+        "auto_detect_interface": true,
+        "override_android_vpn": true
+    },
+    "experimental": {
+        "cache_file": {
+            "enabled": true,
+            "path": "cache.db",
+            "cache_id": "ircp"
+        }
     }
-  }
 }
