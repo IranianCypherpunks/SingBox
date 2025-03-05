@@ -127,7 +127,7 @@
             "domain_strategy": "prefer_ipv6",
             "server": "h2.88981401.xyz",
             "server_port": 443,
-            "password": "yVdMahZlkkgk",
+            "password": "vcYvxdLmchxq",
             "tls": {
                 "enabled": true,
                 "server_name": "hy2.55994421.xyz",
@@ -139,7 +139,7 @@
                     "pq_signature_schemes_enabled": true,
                     "config": [
                         "-----BEGIN ECH CONFIGS-----",
-                        "AFf+DQBTAAAgACBgC+U935o5TbXkGxia/GgQYBb3+goW2Z0l/6se3ObxZwAIAAEA",
+                        "AFf+DQBTAAAgACB1l5Z/pI69Hr7R+Bj+BAx7UNpqTWx4l7p9F3DP64/LSAAIAAEA",
                         "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
                         "-----END ECH CONFIGS-----"
                     ]
