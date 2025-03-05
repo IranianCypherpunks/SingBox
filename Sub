@@ -124,26 +124,29 @@
         {
             "type": "hysteria2",
             "tag": "HY2",
-            "domain_strategy": "prefer_ipv6",
-            "server": "h2.88981401.xyz",
+            "server": "h2.88981401.xyz", 
             "server_port": 443,
-            "password": "vcYvxdLmchxq",
+            "up_mbps": 0, 
+            "down_mbps": 0,
+            "password": "FAQr8W076QzJ",
             "tls": {
+              "enabled": true,
+              "insecure": true,
+              "server_name": "ieee.org", 
+              "alpn": [
+                "h3"
+              ],
+              "ech": {
                 "enabled": true,
-                "server_name": "hy2.55994421.xyz",
-                "alpn": "h3",
-                "min_version": "1.3",
-                "max_version": "1.3",
-                "ech": {
-                    "enabled": true,
-                    "pq_signature_schemes_enabled": true,
-                    "config": [
-                        "-----BEGIN ECH CONFIGS-----",
-                        "AFf+DQBTAAAgACB1l5Z/pI69Hr7R+Bj+BAx7UNpqTWx4l7p9F3DP64/LSAAIAAEA",
-                        "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
-                        "-----END ECH CONFIGS-----"
-                    ]
-                }
+                "pq_signature_schemes_enabled": true,
+                "dynamic_record_sizing_disabled": false,
+                "config": [
+                  "-----BEGIN ECH CONFIGS-----",
+                  "AFf+DQBTAAAgACArYGGOZo/sT4Q12teDxtFtYV2ntVRkPTQopBlhmWsnZQAIAAEA",
+                  "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
+                  "-----END ECH CONFIGS-----"
+                ]
+              }
             }
         },
         {
