@@ -95,8 +95,8 @@
           "enabled": true,
           "config": [
             "-----BEGIN ECH CONFIGS-----",
-            "AEv+DQBHAAAgACCv/adP9Sbsji0Ksj8E4HLmKQyZGvxV6YsFXE1t1mtMLgAIAAEA",
-            "AQABAAMAFGNob3BwZXIuNTU5OTQ0MjEueHl6AAA=",
+            "AFf+DQBTAAAgACCPZR4ff//aER1wo4OUi8qz02g3LrRhtCeaIV43tPAaGwAIAAEA",
+            "AQABAAMAIFstLXBxLXNpZ25hdHVyZS1zY2hlbWVzLWVuYWJsZWRdAAA=",
             "-----END ECH CONFIGS-----"
           ]
         }
