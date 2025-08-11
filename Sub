@@ -199,7 +199,7 @@
       "type": "hysteria2",
       "tag": "🇳🇱 IRCP-1-IPv6\n@Ln2Ray",
       "domain_strategy": "ipv6_only",
-      "server": "2a14:3f87:f001:9::a",
+      "server": "2a12:5940:1680::101",
       "server_port": 0,
       "server_ports": "45000:50000",
       "hop_interval": "2m0s",
